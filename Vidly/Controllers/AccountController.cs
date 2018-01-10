@@ -78,10 +78,23 @@ namespace Vidly.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser() { UserName = model.UserName };
+                var user = new ApplicationUser() { UserName = model.UserName,
+                DrivingLicense=model.DrivingLicense, Phone=model.Phone
+                
+                };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+
+                    //Temp code to add role to user
+//                    var roleStore = new RoleStore<IdentityRole>(new ApplicationDbContext());
+//                    var roleManager = new RoleManager<IdentityRole>
+//(roleStore);
+//                    await roleManager.CreateAsync(new IdentityRole("CanManageMovies"));
+//                   await UserManager.AddToRoleAsync(user.Id, "CanManageMovies");
+
+
+
                     await SignInAsync(user, isPersistent: false);
                     return RedirectToAction("Index", "Home");
                 }
@@ -378,7 +391,8 @@ namespace Vidly.Controllers
 
         private class ChallengeResult : HttpUnauthorizedResult
         {
-            public ChallengeResult(string provider, string redirectUri) : this(provider, redirectUri, null)
+            public ChallengeResult(string provider, string redirectUri)
+                : this(provider, redirectUri, null)
             {
             }
 

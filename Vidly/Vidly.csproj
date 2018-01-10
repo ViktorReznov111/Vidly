@@ -16,10 +16,11 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort />
-    <IISExpressAnonymousAuthentication />
-    <IISExpressWindowsAuthentication />
-    <IISExpressUseClassicPipelineMode />
+    <IISExpressSSLPort>
+    </IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication>enabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>disabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode>false</IISExpressUseClassicPipelineMode>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -242,6 +243,18 @@
     <Compile Include="Migrations\201712271328209_PopulateMoviesV2.Designer.cs">
       <DependentUpon>201712271328209_PopulateMoviesV2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801091354030_SeedUsers.cs" />
+    <Compile Include="Migrations\201801091354030_SeedUsers.Designer.cs">
+      <DependentUpon>201801091354030_SeedUsers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801101251093_AddDrivingLicense.cs" />
+    <Compile Include="Migrations\201801101251093_AddDrivingLicense.Designer.cs">
+      <DependentUpon>201801101251093_AddDrivingLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201801101438508_AddPhone.cs" />
+    <Compile Include="Migrations\201801101438508_AddPhone.Designer.cs">
+      <DependentUpon>201801101438508_AddPhone.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -250,6 +263,7 @@
     <Compile Include="Models\MembershipType.cs" />
     <Compile Include="Models\Min18YearsIfMember.cs" />
     <Compile Include="Models\Movie.cs" />
+    <Compile Include="Models\RoleName.cs" />
     <Compile Include="Models\StockNumberValidation.cs" />
     <Compile Include="MyDbContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -485,10 +499,11 @@
     <Content Include="Views\Movies\Movies.cshtml" />
     <Content Include="Views\Customers\Details.cshtml" />
     <Content Include="Views\Customers\Index.cshtml" />
-    <Content Include="Views\Movies\Index.cshtml" />
+    <Content Include="Views\Movies\List.cshtml" />
     <Content Include="Views\Movies\Details.cshtml" />
     <Content Include="Views\Customers\CustomerForm.cshtml" />
     <Content Include="Views\Movies\MovieForm.cshtml" />
+    <Content Include="Views\Movies\ReadOnlyList.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -540,6 +555,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201712271328209_PopulateMoviesV2.resx">
       <DependentUpon>201712271328209_PopulateMoviesV2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801091354030_SeedUsers.resx">
+      <DependentUpon>201801091354030_SeedUsers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801101251093_AddDrivingLicense.resx">
+      <DependentUpon>201801101251093_AddDrivingLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801101438508_AddPhone.resx">
+      <DependentUpon>201801101438508_AddPhone.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

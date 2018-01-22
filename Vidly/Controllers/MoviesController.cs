@@ -6,7 +6,7 @@ using System.Web.Mvc;
 using Vidly.Models;
 using Vidly.ViewModels;
 using System.Data.Entity;
-
+using System.Runtime.Caching;
 namespace Vidly.Controllers
 {
     public class MoviesController : Controller
@@ -76,6 +76,17 @@ namespace Vidly.Controllers
 
 
             //return View(movies);
+
+
+            if (MemoryCache.Default["Genres"] == null)
+            {
+
+                MemoryCache.Default["Genres"] = _context.Genres.ToList();
+            }
+
+
+            var genres = MemoryCache.Default["Genres"] as IEnumerable<Genre>;
+
 
             if (User.IsInRole("CanManageMovies"))
                 return View("List");

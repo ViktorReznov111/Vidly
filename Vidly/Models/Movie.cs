@@ -25,5 +25,7 @@ namespace Vidly.Models
         [StockNumberValidation]
         public byte NumberInStock { get; set; }
 
+        public byte NumberAvaliable { get; set; }
+
     }
 }
